@@ -4,7 +4,9 @@
 
 Phanta is a next-generation blockchain-native portfolio management platform that leverages on-chain data, Solana Program Derived Addresses (PDAs), and Google Gemini AI to provide intelligent portfolio analysis, risk assessment, and automated insights. Built entirely on blockchain infrastructure, Phanta brings the power of decentralized finance to portfolio management.
 
-## 🌐 Blockchain-First Architecture
+Won Badger Build Fest 2025. https://devpost.com/software/phanta?ref_content=my-projects-tab&ref_feature=my_projects
+
+## Blockchain-First Architecture
 
 Phanta is built entirely on blockchain infrastructure - every feature leverages the power of decentralized technology:
 
@@ -14,7 +16,7 @@ Phanta is built entirely on blockchain infrastructure - every feature leverages 
 - **Smart Contract Integration**: Group deposits and membership tracked on-chain via Solana programs
 - **Decentralized State**: Group accounts stored as PDAs, ensuring transparency and immutability
 
-## 🔗 Core Blockchain Features
+## Core Blockchain Features
 
 ### On-Chain Portfolio Tracking
 - Real-time balance fetching from Solana RPC endpoints
@@ -34,7 +36,7 @@ Phanta is built entirely on blockchain infrastructure - every feature leverages 
 - **Solana RPC**: Direct blockchain queries for balances and transactions
 - **CoinGecko**: Market data for cryptocurrency assets
 
-## 🤖 AI-Powered Insights
+## AI-Powered Insights
 
 Powered by Google Gemini, Phanta provides:
 
@@ -43,7 +45,7 @@ Powered by Google Gemini, Phanta provides:
 - **Trading Recommendations**: Data-driven suggestions for portfolio optimization
 - **Group Chat AI**: Collaborative decision-making with AI assistance via `@gemini` mentions
 
-## 🏗️ Technical Stack
+## Technical Stack
 
 ### Blockchain Layer
 - **Solana Web3.js**: Direct blockchain interaction
@@ -63,7 +65,7 @@ Powered by Google Gemini, Phanta provides:
 - **Google Gemini API**: AI-powered insights
 - **Axios**: HTTP client for blockchain APIs
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js 18+ and npm
@@ -74,7 +76,7 @@ Powered by Google Gemini, Phanta provides:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/roygalCS/Phanta.git
+   git clone https://github.com/YOUR_GITHUB_USERNAME/Phanta.git
    cd Phanta
    ```
 
@@ -114,7 +116,7 @@ Powered by Google Gemini, Phanta provides:
    - Click "Connect Phantom Wallet"
    - Approve the connection in Phantom
 
-## 📊 Features
+## Features
 
 ### Portfolio Dashboard
 - **Real-Time Balances**: Live SOL and SPL token balances from blockchain
@@ -139,14 +141,14 @@ Powered by Google Gemini, Phanta provides:
 - **Correlation Matrices**: Asset correlation from blockchain data
 - **Regression Analysis**: Statistical analysis of price movements
 
-## 🔐 Security
+## Security
 
 - **Wallet Integration**: Direct connection to Phantom wallet
 - **No Private Keys**: Private keys never leave your wallet
 - **On-Chain Verification**: All transactions verified on Solana blockchain
 - **Transparent State**: Group data publicly verifiable on-chain
 
-## 🛠️ Development
+## Development
 
 ### Project Structure
 ```
@@ -189,7 +191,7 @@ pub struct GroupAccount {
 4. **AI Analysis**: Gemini analyzes on-chain portfolio data
 5. **User Interface**: Display blockchain data in modern UI
 
-## 🌟 Key Differentiators
+## Key Differentiators
 
 - **100% Blockchain-Native**: All data sourced from on-chain sources
 - **Solana-First**: Built specifically for Solana blockchain
@@ -197,18 +199,18 @@ pub struct GroupAccount {
 - **Real-Time On-Chain Data**: Live blockchain state updates
 - **AI + Blockchain**: Combines AI intelligence with blockchain transparency
 
-## 📝 License
+## License
 
 MIT License - see LICENSE file for details
 
-## 🔗 Links
+## Links
 
-- **GitHub**: https://github.com/roygalCS/Phanta
+- **GitHub**: https://github.com/YOUR_GITHUB_USERNAME/Phanta
 - **Solana Docs**: https://docs.solana.com
 - **Phantom Wallet**: https://phantom.app
 - **Google Gemini**: https://ai.google.dev
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Solana Foundation for blockchain infrastructure
 - Phantom for wallet integration
@@ -222,3 +224,5 @@ MIT License - see LICENSE file for details
 5. **User Interface**: Display blockchain data in modern UI
 
 **Built on Solana. Powered by AI. Managed by You.**
+
+---

@@ -170,20 +170,37 @@ Phanta/
 
 The group functionality uses Solana programs:
 
-```rust
-// programs/phanta-groups/src/lib.rs
-// GroupAccount PDA structure
-pub struct GroupAccount {
-    pub owner: Pubkey,
-    pub members: Vec<Pubkey>,
-    pub required_deposit: u64,
-    pub total_deposited: u64,
-    pub member_count: u8,
-    pub status: bool,
-}
+---
+
+## Environment Configuration
+Phanta reads environment variables through `backend/config/loadEnv.js`, which layers `backend/.env` over a project-wide `.env` when present. 
+
+**See `.env.example` for all available environment variables.**
+
+**Backend (`backend/.env`):**
+```env
+# Server
+PORT=3001
+FRONTEND_URL=http://localhost:5173
+
+# AI Providers (at least one recommended)
+GEMINI_API_KEY=your_key
+CHATGPT_API_KEY=your_key
+CLAUDE_API_KEY=your_key
+GROQ_API_KEY=your_key
+MISTRAL_API_KEY=your_key
+TOGETHER_API_KEY=your_key
+
+# Optional: Enhanced Solana data
+HELIUS_API_KEY=your_key
 ```
 
-### Blockchain Data Flow
+**Frontend (`frontend/.env`):**
+```env
+VITE_API_BASE_URL=http://localhost:3001/api
+```
+
+> Tip: If you omit all AI API keys, the service automatically falls back to curated suggestions so the UI remains useful offline.
 
 1. **Wallet Connection**: Phantom wallet connects via Solana Web3.js
 2. **RPC Queries**: Fetch balances, tokens, transactions from Solana RPC

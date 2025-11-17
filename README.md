@@ -1,14 +1,28 @@
 # Phanta
 
-**AI-Powered Blockchain Portfolio Management Platform**
+**Phanta** is an AI-first crypto banking experience powered by **Google Gemini** that turns your Phantom wallet into an intelligent portfolio management system. Built with real Solana on-chain data, live token prices, and Gemini AI insights. Get real-time portfolio tracking, risk analysis, and actionable trading recommendations powered by your actual wallet data.
 
 Phanta is a next-generation blockchain-native portfolio management platform that leverages on-chain data, Solana Program Derived Addresses (PDAs), and Google Gemini AI to provide intelligent portfolio analysis, risk assessment, and automated insights. Built entirely on blockchain infrastructure, Phanta brings the power of decentralized finance to portfolio management.
 
-Won Badger Build Fest 2025. https://devpost.com/software/phanta?ref_content=my-projects-tab&ref_feature=my_projects
+## Overview
+
+- **Audience** – Crypto-native investors and advisors who want a banking console that understands wallets instead of checking accounts.
+- **Value** – Unified balances, interactive analytics, and an embedded AI analyst powered by Google Gemini that stays useful even when offline.
+- **Stack** – React 19 + Vite frontend, Express + SQLite backend, **Google Gemini 2.5 Flash** for natural-language insights.
 
 ## Blockchain-First Architecture
 
-Phanta is built entirely on blockchain infrastructure - every feature leverages the power of decentralized technology:
+## Feature Tour
+
+- **Real On-Chain Data** – Live Solana portfolio tracking via Helius API, real token balances and prices via Jupiter API
+- **AI-Powered Assistant** – **Google Gemini AI** analyzes your real portfolio, provides risk analysis, and suggests optimizations
+- **24h PnL Tracking** – Real-time profit/loss calculations with percentage changes
+- **Risk Analysis** – Automatic risk scoring (0-100) with concentration warnings and recommendations
+- **Portfolio Holdings** – See all your tokens with live USD values and allocation percentages
+- **Trading Recommendations** – Gemini AI suggests rebalancing, diversification, and risk management strategies
+- **Transaction History** – Real on-chain transaction log from your wallet
+- **Group Chat** – Create groups, invite members, and use `@gemini` to add AI to conversations
+- **Modern UI** – Gemini dark mode minimalistic interface, AI-first design
 
 - **Solana Blockchain**: All portfolio data is fetched directly from on-chain sources
 - **Program Derived Addresses (PDAs)**: Group functionality uses Solana PDAs for decentralized state management
@@ -16,183 +30,82 @@ Phanta is built entirely on blockchain infrastructure - every feature leverages 
 - **Smart Contract Integration**: Group deposits and membership tracked on-chain via Solana programs
 - **Decentralized State**: Group accounts stored as PDAs, ensuring transparency and immutability
 
-## Core Blockchain Features
+## Architecture at a Glance
 
-### On-Chain Portfolio Tracking
-- Real-time balance fetching from Solana RPC endpoints
-- Token account analysis using Solana's Token Program
-- Transaction history directly from blockchain signatures
-- Multi-RPC endpoint support for reliability
-
-### Solana Program Integration
-- **Group Management**: Create and join groups with on-chain state
-- **PDA Accounts**: Group data stored in Program Derived Addresses
-- **Deposit Tracking**: Member deposits tracked on-chain
-- **Majority Voting**: On-chain logic for group decisions
-
-### Blockchain Data Sources
-- **Helius API**: Enhanced Solana wallet indexing
-- **Jupiter API**: Real-time token prices from on-chain DEX aggregators
-- **Solana RPC**: Direct blockchain queries for balances and transactions
-- **CoinGecko**: Market data for cryptocurrency assets
-
-## AI-Powered Insights
-
-Powered by Google Gemini, Phanta provides:
-
-- **Portfolio Analysis**: AI-driven analysis of your on-chain holdings
-- **Risk Assessment**: Intelligent risk scoring based on blockchain data
-- **Trading Recommendations**: Data-driven suggestions for portfolio optimization
-- **Group Chat AI**: Collaborative decision-making with AI assistance via `@gemini` mentions
-
-## Technical Stack
-
-### Blockchain Layer
-- **Solana Web3.js**: Direct blockchain interaction
-- **Anchor Framework**: Solana program development
-- **Phantom Wallet**: Native Solana wallet integration
-- **RPC Endpoints**: Multiple Solana RPC providers for redundancy
-
-### Frontend
-- **React.js**: Modern UI framework
-- **Vite**: Fast build tool
-- **Tailwind CSS**: Utility-first styling
-- **Chart.js**: Data visualization
-
-### Backend
-- **Node.js/Express**: API server
-- **SQLite**: Off-chain metadata storage
-- **Google Gemini API**: AI-powered insights
-- **Axios**: HTTP client for blockchain APIs
-
-## Getting Started
-
-### Prerequisites
-- Node.js 18+ and npm
-- Phantom wallet browser extension
-- Google Gemini API key (for AI features)
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/YOUR_GITHUB_USERNAME/Phanta.git
-   cd Phanta
-   ```
-
-2. **Install dependencies**
-   ```bash
-   # Backend
-   cd backend
-   npm install
-   
-   # Frontend
-   cd ../frontend
-   npm install
-   ```
-
-3. **Configure environment variables**
-   
-   Create `backend/.env`:
-   ```env
-   GEMINI_API_KEY=your_gemini_api_key_here
-   HELIUS_API_KEY=your_helius_key_optional
-   PORT=3001
-   ```
-
-4. **Start the servers**
-   ```bash
-   # Terminal 1: Backend
-   cd backend
-   npm start
-   
-   # Terminal 2: Frontend
-   cd frontend
-   npm run dev
-   ```
-
-5. **Connect your Phantom wallet**
-   - Open http://localhost:5173
-   - Click "Connect Phantom Wallet"
-   - Approve the connection in Phantom
-
-## Features
-
-### Portfolio Dashboard
-- **Real-Time Balances**: Live SOL and SPL token balances from blockchain
-- **On-Chain Holdings**: All tokens tracked directly from your wallet
-- **Transaction History**: Complete on-chain transaction feed
-- **24h PnL**: Calculated from blockchain price data
-
-### Group Management (On-Chain)
-- **Create Groups**: Initialize Solana PDA accounts for groups
-- **Join Groups**: Deposit SOL/SPL tokens to join groups
-- **On-Chain State**: All group data stored in blockchain accounts
-- **Majority Logic**: Blockchain-enforced group decision rules
-
-### AI Assistant
-- **Portfolio Analysis**: Gemini AI analyzes your on-chain portfolio
-- **Risk Warnings**: AI identifies potential risks in holdings
-- **Optimization Suggestions**: Data-driven recommendations
-- **Group Chat**: AI-powered group discussions
-
-### Market Intelligence
-- **Crypto Analytics**: Market data and volatility analysis
-- **Correlation Matrices**: Asset correlation from blockchain data
-- **Regression Analysis**: Statistical analysis of price movements
-
-## Security
-
-- **Wallet Integration**: Direct connection to Phantom wallet
-- **No Private Keys**: Private keys never leave your wallet
-- **On-Chain Verification**: All transactions verified on Solana blockchain
-- **Transparent State**: Group data publicly verifiable on-chain
-
-## Development
-
-### Project Structure
 ```
-Phanta/
-├── backend/
-│   ├── routes/          # API routes
-│   ├── services/        # Blockchain & AI services
-│   ├── programs/        # Solana programs (Anchor)
-│   └── database.js      # SQLite setup
+phanta/
+├── backend/                      # Express API and services
+│   ├── config/loadEnv.js         # Layered dotenv loader for backend/.env
+│   ├── database.js               # SQLite helpers + schema bootstrap
+│   ├── routes/
+│   │   ├── auth.js               # Wallet onboarding + profile lookups
+│   │   ├── finance.js            # Portfolio, transactions, Gemini chat proxy
+│   │   ├── groups.js             # Group management endpoints
+│   │   └── health.js              # Health check + API key status
+│   └── services/
+│       ├── financeService.js     # Portfolio data, Gemini AI orchestration
+│       ├── geminiClient.js       # Gemini REST client (2.5 Flash default)
+│       ├── solanaPortfolioService.js  # Real Solana portfolio tracking
+│       ├── heliusService.js     # Helius API integration
+│       └── jupiterService.js     # Jupiter price API
 ├── frontend/
 │   ├── src/
-│   │   ├── components/  # React components
-│   │   ├── services/    # API clients
-│   │   └── hooks/       # Custom React hooks
+│   │   ├── App.jsx               # Main app component
+│   │   ├── Dashboard.jsx         # Main signed-in experience
+│   │   ├── components/
+│   │   │   ├── Layout.jsx        # Main layout with navigation
+│   │   │   ├── AIAssistantPanel.jsx  # Gemini-powered chat interface
+│   │   │   ├── GroupManager.jsx  # Group creation and management
+│   │   │   ├── GroupChat.jsx     # Group chat with @gemini mentions
+│   │   │   └── PhantaLogo.jsx    # Animated Phanta bottle logo
+│   │   └── services/api.js       # REST client targeting the backend
+│   └── package.json
 └── README.md
 ```
 
-### Solana Program Development
+### Backend Highlights
 
-The group functionality uses Solana programs:
+- Express API with modular routes (auth, finance, groups, health).
+- **Real Solana Integration** – Helius API for wallet indexing, Jupiter API for prices
+- **Portfolio Service** – Real-time portfolio tracking with PnL calculations
+- **Risk Analysis Engine** – Automatic risk scoring and warnings
+- **Google Gemini Integration** – Full AI assistant powered by Gemini 2.5 Flash
+- SQLite storage via `database.js` with helpers for queries and seeding.
+- `financeService` integrates real portfolio data with Gemini AI insights
+- `geminiClient` wraps the Generative Language API with transport fallbacks
+
+### Frontend Highlights
+
+- React 19 + Vite + Tailwind CSS for fast iteration.
+- **Gemini Dark Mode UI** – True black background, minimalistic design matching Google Gemini
+- Dashboard experience clusters portfolio metrics, charts, market intel, and the Gemini AI copilot.
+- **Group Features** – Create groups, invite members, chat with `@gemini` mentions
+- Componentized layout enables swapping data sources without reworking the entire shell.
 
 ---
 
 ## Environment Configuration
-Phanta reads environment variables through `backend/config/loadEnv.js`, which layers `backend/.env` over a project-wide `.env` when present. 
 
-**See `.env.example` for all available environment variables.**
+Phanta reads environment variables through `backend/config/loadEnv.js`, which loads from `backend/.env`.
 
 **Backend (`backend/.env`):**
 ```env
-# Server
+# Server Configuration
 PORT=3001
 FRONTEND_URL=http://localhost:5173
 
-# AI Providers (at least one recommended)
-GEMINI_API_KEY=your_key
-CHATGPT_API_KEY=your_key
-CLAUDE_API_KEY=your_key
-GROQ_API_KEY=your_key
-MISTRAL_API_KEY=your_key
-TOGETHER_API_KEY=your_key
+# Google Gemini API (Required)
+GEMINI_API_KEY=your_gemini_api_key_here
 
 # Optional: Enhanced Solana data
-HELIUS_API_KEY=your_key
+HELIUS_API_KEY=your_helius_key_here
+
+# Optional: Gemini Configuration
+GEMINI_MODEL=gemini-2.5-flash
+GEMINI_TEMPERATURE=0.25
+GEMINI_MAX_OUTPUT_TOKENS=768
+GEMINI_TOP_P=0.9
+GEMINI_SAFETY_THRESHOLD=BLOCK_MEDIUM_AND_ABOVE
 ```
 
 **Frontend (`frontend/.env`):**
@@ -200,7 +113,7 @@ HELIUS_API_KEY=your_key
 VITE_API_BASE_URL=http://localhost:3001/api
 ```
 
-> Tip: If you omit all AI API keys, the service automatically falls back to curated suggestions so the UI remains useful offline.
+> **Get your Gemini API key:** Visit https://aistudio.google.com/app/apikey to create a free API key.
 
 1. **Wallet Connection**: Phantom wallet connects via Solana Web3.js
 2. **RPC Queries**: Fetch balances, tokens, transactions from Solana RPC
@@ -210,32 +123,125 @@ VITE_API_BASE_URL=http://localhost:3001/api
 
 ## Key Differentiators
 
-- **100% Blockchain-Native**: All data sourced from on-chain sources
-- **Solana-First**: Built specifically for Solana blockchain
-- **PDA-Based Groups**: Decentralized group management
-- **Real-Time On-Chain Data**: Live blockchain state updates
-- **AI + Blockchain**: Combines AI intelligence with blockchain transparency
+### Prerequisites
+
+- Node.js 18+ installed
+- Phantom wallet browser extension
+- Google Gemini API key (free tier available)
+
+### Backend API
+
+```bash
+cd backend
+npm install
+npm start          # launches on http://localhost:3001
+```
+
+The backend initializes the SQLite database (`phanta.db`) on first run and logs key endpoints, including a health probe at `/api/health` and API key status at `/api/health/api-keys`.
+
+### Frontend App
+
+```bash
+cd frontend
+npm install
+npm run dev        # serves the React app on http://localhost:5173
+```
+
+Visit `http://localhost:5173`, connect your Phantom wallet, and follow the onboarding prompts. The frontend hits the backend REST API at `http://localhost:3001` by default.
+
+---
+
+## API Surface
+
+| Method | Route                                   | Description |
+|--------|-----------------------------------------|-------------|
+| GET    | `/api/health`                           | Backend health check |
+| GET    | `/api/health/api-keys`                  | Check Gemini API key status |
+| POST   | `/api/auth/check-user`                  | Detect existing wallet profiles |
+| POST   | `/api/auth/onboard`                     | Create a new user linked to a wallet |
+| GET    | `/api/finance/overview/:wallet`         | Return real portfolio overview with on-chain data |
+| GET    | `/api/finance/portfolio/:wallet`        | Get real-time Solana portfolio with risk analysis |
+| GET    | `/api/finance/transactions/:wallet`     | Return real on-chain transaction history |
+| POST   | `/api/finance/ai-suggestions`           | Chat endpoint with Gemini AI (real portfolio context) |
+| POST   | `/api/finance/quote`                    | Get Jupiter swap quotes for trading |
+| GET    | `/api/groups/user/:wallet`              | Get user's groups |
+| POST   | `/api/groups/create`                    | Create a new group |
+| POST   | `/api/groups/join`                      | Join a group |
+
+---
+
+## Gemini AI Integration
+
+Phanta is powered entirely by **Google Gemini 2.5 Flash**. The AI assistant:
+
+1. **Analyzes Real Portfolios** – Gemini receives your actual Solana wallet data including token balances, prices, and 24h PnL
+2. **Provides Risk Analysis** – AI calculates risk scores and provides warnings about concentration
+3. **Suggests Optimizations** – Gemini recommends rebalancing, diversification, and yield strategies
+4. **Group Chat Support** – Use `@gemini` in group chats to add AI to conversations
+5. **Offline Fallback** – Curated suggestions when Gemini is unavailable
+
+### How It Works
+
+1. Frontend posts prompts, historical messages, wallet context, and portfolio snapshots to `/api/finance/ai-suggestions`.
+2. `financeService` assembles system instructions with real portfolio data, generation config, and safety settings before calling `generateContent` in `geminiClient`.
+3. `geminiClient` targets Gemini 2.5 Flash and handles transport via native `fetch` or Node's `https`.
+4. Responses are normalized into `{ message, note, meta, context }` payloads. If Gemini is unreachable, curated fallback suggestions are injected instead of failing the chat experience.
+
+---
+
+## Group Features
+
+Phanta includes on-chain group functionality:
+
+- **Create Groups** – Owners can create groups with required deposit amounts
+- **Join Groups** – Members join using email and deposit SOL
+- **Group Chat** – Members can chat and use `@gemini` to add AI to conversations
+- **On-Chain State** – Group data stored on Solana via Program Derived Addresses (PDAs)
+
+---
+
+## Development Tips
+
+- **Database Resets** – Use the helper functions in `backend/database.js` or the provided seed scripts to reset sample data.
+- **Static Analysis** – Add your preferred linter/prettier setup; the project intentionally stays lightweight.
+- **Testing** – Endpoints are simple enough for supertest or MSW harnesses; consider adding regression coverage as you move beyond the MVP.
+- **Environment Safety** – `loadEnv` only sets values when they are missing, so explicitly exporting variables in your shell will override `.env` entries.
+
+---
+
+## 🏆 Hackathon Features
+
+✅ **Real On-Chain Data** - Actual Solana blockchain integration  
+✅ **Live Token Prices** - Real-time USD valuations via Jupiter  
+✅ **AI Portfolio Analysis** - Google Gemini analyzes your real holdings  
+✅ **Risk Scoring** - Automatic 0-100 risk assessment  
+✅ **24h PnL Tracking** - Real profit/loss calculations  
+✅ **Trading Recommendations** - Gemini-powered optimization suggestions  
+✅ **Group Chat** - On-chain groups with AI integration  
+✅ **Production-Ready UI** - Polished Gemini dark mode interface  
+
+---
+
+## Roadmap Ideas
+
+1. Historical PnL tracking with price history
+2. Transaction simulation before execution
+3. Automated rebalancing alerts
+4. Multi-wallet portfolio aggregation
+5. DeFi yield optimization suggestions
+6. Tax reporting and CSV exports
+7. Advanced Gemini features (multimodal, function calling)
+
+---
 
 ## License
 
-MIT License - see LICENSE file for details
-
-## Links
-
-- **GitHub**: https://github.com/YOUR_GITHUB_USERNAME/Phanta
-- **Solana Docs**: https://docs.solana.com
-- **Phantom Wallet**: https://phantom.app
-- **Google Gemini**: https://ai.google.dev
-
-## Acknowledgments
-
-- Solana Foundation for blockchain infrastructure
-- Phantom for wallet integration
-- Google for Gemini AI
-- Helius and Jupiter for blockchain data APIs
+This MVP is provided for experimentation and product exploration. Use at your own discretion.
 
 ---
 
-**Built on Solana. Powered by AI. Managed by You.**
+## Support
 
----
+For issues or questions, please open an issue on GitHub or contact the maintainers.
+
+**Built with ❤️ using Google Gemini AI**

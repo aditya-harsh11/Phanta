@@ -4,7 +4,8 @@
 
 Phanta is a next-generation blockchain-native portfolio management platform that leverages on-chain data, Solana Program Derived Addresses (PDAs), and Google Gemini AI to provide intelligent portfolio analysis, risk assessment, and automated insights. Built entirely on blockchain infrastructure, Phanta brings the power of decentralized finance to portfolio management.
 
-Won Badger Build Fest 2025. https://devpost.com/software/phanta?ref_content=my-projects-tab&ref_feature=my_projects
+Won Badger Build Fest 2025.  
+DevPost : https://devpost.com/software/phanta
 
 ## Blockchain-First Architecture
 
